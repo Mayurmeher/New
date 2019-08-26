@@ -1,0 +1,166 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 5.1.38-community MySQL Community Server (GPL)
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| aish007            |
+| akshaykumar        |
+| ass                |
+| assg               |
+| bookdb             |
+| cdac1              |
+| company            |
+| datab              |
+| db                 |
+| db1                |
+| db12               |
+| empdb              |
+| employee           |
+| exam1              |
+| image              |
+| j2eedb             |
+| login              |
+| marvel             |
+| muhme              |
+| mydata             |
+| mydb               |
+| mydb07             |
+| mydb1              |
+| mydemodata         |
+| mysql              |
+| ritesh             |
+| shreyas            |
+| tables             |
+| test               |
+| test1              |
+| today              |
+| work               |
++--------------------+
+33 rows in set (0.00 sec)
+
+mysql> create database foods;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| aish007            |
+| akshaykumar        |
+| ass                |
+| assg               |
+| bookdb             |
+| cdac1              |
+| company            |
+| datab              |
+| db                 |
+| db1                |
+| db12               |
+| empdb              |
+| employee           |
+| exam1              |
+| foods              |
+| image              |
+| j2eedb             |
+| login              |
+| marvel             |
+| muhme              |
+| mydata             |
+| mydb               |
+| mydb07             |
+| mydb1              |
+| mydemodata         |
+| mysql              |
+| ritesh             |
+| shreyas            |
+| tables             |
+| test               |
+| test1              |
+| today              |
+| work               |
++--------------------+
+34 rows in set (0.00 sec)
+
+mysql> create table resturant;
+ERROR 1046 (3D000): No database selected
+mysql> use foods;
+Database changed
+mysql> create table resturant;
+ERROR 1113 (42000): A table must have at least 1 column
+mysql> create table resturant
+    -> (RID int,Rname varchar(20),Food varchar(20));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> insert into resturant values('1','Dominos','Pizza');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into resturant values('2','MacD','Burger');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into resturant values('3','TheJ','fries');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from resturant;
++------+---------+--------+
+| RID  | Rname   | Food   |
++------+---------+--------+
+|    1 | Dominos | Pizza  |
+|    2 | MacD    | Burger |
+|    3 | TheJ    | fries  |
++------+---------+--------+
+3 rows in set (0.00 sec)
+
+mysql> update resturant
+    -> set Rname='Macdonalds'
+    -> where RID=2;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from resturant;
++------+------------+--------+
+| RID  | Rname      | Food   |
++------+------------+--------+
+|    1 | Dominos    | Pizza  |
+|    2 | Macdonalds | Burger |
+|    3 | TheJ       | fries  |
++------+------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> delete from
+    -> delete from resturant
+    -> where RID=3;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'delete from resturant
+where RID=3' at line 2
+mysql> delete from resturant
+    -> where RID=3;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from resturant;
++------+------------+--------+
+| RID  | Rname      | Food   |
++------+------------+--------+
+|    1 | Dominos    | Pizza  |
+|    2 | Macdonalds | Burger |
++------+------------+--------+
+2 rows in set (0.00 sec)
+
+mysql> truncate table resturant;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> select * from resturant;
+Empty set (0.00 sec)
+
+mysql> drop table resturant;
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> select * from resturant;
+ERROR 1146 (42S02): Table 'foods.resturant' doesn't exist
+mysql>
